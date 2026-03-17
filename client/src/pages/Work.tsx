@@ -46,12 +46,12 @@ export default function Work() {
                   <h1
                     className="text-4xl md:text-5xl font-display font-bold text-white mb-3"
                     data-testid="text-vibe-coding-title"
-                  >AI-powered with Replit</h1>
+                  >AI Expertise</h1>
                   <p
                     className="text-white/60 max-w-2xl"
                     data-testid="text-vibe-coding-subtitle"
                   >
-                    Rapid prototyping, UI exploration, and shipping small apps fast — a playground for ideas and craft.
+                    Rapid prototyping, UI exploration, and shipping apps fast.
                   </p>
                 </div>
                 <div className="hidden md:block h-px flex-1 bg-white/10 ml-12 mb-3" />
