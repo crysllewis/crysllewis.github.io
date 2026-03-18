@@ -34,14 +34,23 @@ const skills = [
   }
 ];
 
+const ease = [0.25, 0.1, 0.25, 1] as const;
+
 export default function Skills() {
   return (
     <section id="skills" className="py-20 relative z-10">
       <div className="container mx-auto px-6">
-        <div className="mb-16 md:text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Core Capabilities</h2>
-          <p className="text-white/60">A multidisciplinary approach blending 20+ years of design thinking, research, and design.</p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease }}
+          className="mb-16 md:text-center max-w-2xl mx-auto"
+        >
+          <span className="section-label">What and How</span>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">Core Capabilities</h2>
+          <p className="text-gray-500">A multidisciplinary approach blending 20+ years of design thinking, research, and design.</p>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
@@ -50,14 +59,15 @@ export default function Skills() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="glass p-8 rounded-2xl group hover:bg-white/10 transition-colors duration-300"
+              transition={{ delay: index * 0.1, ease }}
+              whileHover={{ y: -4 }}
+              className="card-clean p-8 group hover:shadow-md transition-shadow duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white group-hover:text-primary group-hover:scale-110 transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-gray-50 border border-gray-200 flex items-center justify-center mb-6 text-gray-700 group-hover:text-primary group-hover:scale-110 transition-all duration-300">
                 <skill.icon className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-display font-bold text-white mb-3">{skill.title}</h3>
-              <p className="text-sm text-white/60 leading-relaxed">
+              <h3 className="text-xl font-display font-bold text-gray-900 mb-3">{skill.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
                 {skill.description}
               </p>
             </motion.div>

@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import { Link, useRoute } from "wouter";
 import { ArrowLeft, ExternalLink, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 
 import lkfHero from "@/assets/images/lkf-visual-hero.png";
-import lkfPrograms from "@/assets/images/lkf-visual-programs.png";
 import lkfTestimonials from "@/assets/images/lkf-visual-testimonials.png";
 import gymTrainerScreens from "@/assets/images/gym-trainer-screens.png";
 import gymClientScreens from "@/assets/images/gym-client-screens.png";
+
+const ease = [0.25, 0.1, 0.25, 1] as const;
 
 interface VibeProject {
   title: string;
@@ -28,7 +30,7 @@ interface VibeProject {
 const vibeProjects: Record<string, VibeProject> = {
   "lindsey-kay-fitness": {
     title: "Lindsey Kay Fitness",
-    category: "Vibe Coding • Website Prototype",
+    category: "Vibe Coding \u2022 Website Prototype",
     overview:
       "A modern marketing site built through rapid iteration. The goal was to sharpen visual hierarchy, clarify services, and create a conversion-friendly structure that still feels personal and brand-forward.",
     highlights: [
@@ -60,7 +62,7 @@ const vibeProjects: Record<string, VibeProject> = {
   },
   "gym-scheduler": {
     title: "Gym Scheduler",
-    category: "Vibe Coding • App Prototype",
+    category: "Vibe Coding \u2022 App Prototype",
     overview:
       "A scheduling concept focusing on the end-to-end flow: changing classes, requesting a time slot, managing capacity, and reducing no-shows. I am building this app as a prototype to explore how to present easy calendaring options for both clients and trainers.",
     highlights: [
@@ -109,10 +111,10 @@ export default function VibeCodingProject() {
     return (
       <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-display font-bold text-white mb-4" data-testid="text-vibe-not-found">
+          <h1 className="text-4xl font-display font-bold text-gray-900 mb-4" data-testid="text-vibe-not-found">
             Project Not Found
           </h1>
-          <Link href="/work" className="text-primary hover:text-white transition-colors" data-testid="link-vibe-return-work">
+          <Link href="/work" className="text-primary hover:text-gray-900 transition-colors" data-testid="link-vibe-return-work">
             Return to Work
           </Link>
         </div>
@@ -127,7 +129,7 @@ export default function VibeCodingProject() {
         <div className="container mx-auto px-6">
           <Link
             href="/work"
-            className="inline-flex items-center text-white/60 hover:text-primary transition-colors mb-12 group"
+            className="inline-flex items-center text-gray-400 hover:text-primary transition-colors mb-12 group"
             data-testid="link-back-to-work"
           >
             <ArrowLeft className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" />
@@ -135,32 +137,38 @@ export default function VibeCodingProject() {
           </Link>
 
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-start justify-between gap-8">
-              <div>
-                <span className="text-primary text-sm font-medium tracking-wider uppercase mb-4 block" data-testid="text-vibe-category">
-                  {project.category}
-                </span>
-                <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight" data-testid="text-vibe-title">
-                  {project.title}
-                </h1>
-                <p className="text-white/70 text-lg leading-relaxed max-w-2xl" data-testid="text-vibe-overview">
-                  {project.overview}
-                </p>
-              </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease }}
+            >
+              <div className="flex items-start justify-between gap-8">
+                <div>
+                  <span className="text-primary text-sm font-medium tracking-wider uppercase mb-4 block" data-testid="text-vibe-category">
+                    {project.category}
+                  </span>
+                  <h1 className="text-4xl md:text-6xl font-display font-bold text-gray-900 mb-6 leading-tight" data-testid="text-vibe-title">
+                    {project.title}
+                  </h1>
+                  <p className="text-gray-500 text-lg leading-relaxed max-w-2xl" data-testid="text-vibe-overview">
+                    {project.overview}
+                  </p>
+                </div>
 
-              <div className="hidden md:flex items-center gap-2 text-white/40" data-testid="badge-vibe">
-                <Sparkles className="w-4 h-4" />
-                <span className="text-sm font-medium">Vibe Coding</span>
+                <div className="hidden md:flex items-center gap-2 text-gray-400" data-testid="badge-vibe">
+                  <Sparkles className="w-4 h-4" />
+                  <span className="text-sm font-medium">Vibe Coding</span>
+                </div>
               </div>
-            </div>
+            </motion.div>
 
-            <section className="glass rounded-2xl border-white/10 bg-white/5 px-6 py-5 mt-10" data-testid="section-vibe-meta">
+            <section className="card-clean rounded-2xl px-6 py-5 mt-10" data-testid="section-vibe-meta">
               <div className="grid sm:grid-cols-3 gap-6 items-start place-items-center">
                 <div>
-                  <h3 className="text-white font-bold mb-2 font-display" data-testid="text-vibe-deliverables-label">
+                  <h3 className="text-gray-900 font-bold mb-2 font-display" data-testid="text-vibe-deliverables-label">
                     Deliverables
                   </h3>
-                  <ul className="text-white/60 text-sm space-y-1" data-testid="list-vibe-deliverables">
+                  <ul className="text-gray-500 text-sm space-y-1" data-testid="list-vibe-deliverables">
                     {project.deliverables.map((d) => (
                       <li key={d} data-testid={`item-vibe-deliverable-${d.replace(/\s+/g, "-").toLowerCase()}`}
                       >
@@ -171,10 +179,10 @@ export default function VibeCodingProject() {
                 </div>
 
                 <div>
-                  <h3 className="text-white font-bold mb-2 font-display" data-testid="text-vibe-highlights-label">
+                  <h3 className="text-gray-900 font-bold mb-2 font-display" data-testid="text-vibe-highlights-label">
                     Highlights
                   </h3>
-                  <ul className="text-white/60 text-sm space-y-1" data-testid="list-vibe-highlights">
+                  <ul className="text-gray-500 text-sm space-y-1" data-testid="list-vibe-highlights">
                     {project.highlights.map((h) => (
                       <li key={h} data-testid={`item-vibe-highlight-${h.replace(/\s+/g, "-").toLowerCase()}`}
                       >
@@ -185,10 +193,10 @@ export default function VibeCodingProject() {
                 </div>
 
                 <div>
-                  <h3 className="text-white font-bold mb-2 font-display" data-testid="text-vibe-tools-label">
+                  <h3 className="text-gray-900 font-bold mb-2 font-display" data-testid="text-vibe-tools-label">
                     Tools
                   </h3>
-                  <ul className="text-white/60 text-sm space-y-1" data-testid="list-vibe-tools">
+                  <ul className="text-gray-500 text-sm space-y-1" data-testid="list-vibe-tools">
                     {project.tools.map((t) => (
                       <li key={t} data-testid={`item-vibe-tool-${t.replace(/\s+/g, "-").toLowerCase()}`}
                       >
@@ -201,27 +209,34 @@ export default function VibeCodingProject() {
             </section>
 
             {project.visuals && project.visuals.length > 0 && (
-              <section className="mt-12 space-y-6" data-testid="section-vibe-visuals">
+              <motion.section
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease }}
+                className="mt-12 space-y-6"
+                data-testid="section-vibe-visuals"
+              >
                 <div className="flex items-end justify-between gap-8">
                   <div>
-                    <h2 className="text-2xl font-display font-bold text-white" data-testid="text-vibe-visuals-title">
+                    <h2 className="text-2xl font-display font-bold text-gray-900" data-testid="text-vibe-visuals-title">
                       Visuals
                     </h2>
-                    <p className="text-white/60 mt-2" data-testid="text-vibe-visuals-subtitle">
+                    <p className="text-gray-500 mt-2" data-testid="text-vibe-visuals-subtitle">
                       A few key moments from the UI exploration.
                     </p>
                   </div>
-                  <div className="hidden md:block h-px flex-1 bg-white/10" />
+                  <div className="hidden md:block h-px flex-1 bg-gray-200" />
                 </div>
 
                 <div className="grid gap-6" data-testid="grid-vibe-visuals">
                   {project.visuals.map((v, index) => (
                     <figure
                       key={`${v.alt}-${index}`}
-                      className="glass rounded-3xl border-white/10 bg-white/5 p-2"
+                      className="card-clean rounded-3xl p-2"
                       data-testid={`figure-vibe-visual-${index}`}
                     >
-                      <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+                      <div className="rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
                         <img
                           src={v.src}
                           alt={v.alt}
@@ -232,7 +247,7 @@ export default function VibeCodingProject() {
                       </div>
                       {v.caption && (
                         <figcaption
-                          className="px-4 pt-4 pb-3 text-sm text-white/60"
+                          className="px-4 pt-4 pb-3 text-sm text-gray-500"
                           data-testid={`text-vibe-visual-caption-${index}`}
                         >
                           {v.caption}
@@ -241,34 +256,41 @@ export default function VibeCodingProject() {
                     </figure>
                   ))}
                 </div>
-              </section>
+              </motion.section>
             )}
 
             {project.demoScreens && (project.demoScreens.trainer?.length || project.demoScreens.client?.length) ? (
-              <section className="mt-12 space-y-8" data-testid="section-vibe-demo-screens">
+              <motion.section
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease }}
+                className="mt-12 space-y-8"
+                data-testid="section-vibe-demo-screens"
+              >
                 <div className="flex items-end justify-between gap-8">
                   <div>
-                    <h2 className="text-2xl font-display font-bold text-white" data-testid="text-vibe-demo-screens-title">
+                    <h2 className="text-2xl font-display font-bold text-gray-900" data-testid="text-vibe-demo-screens-title">
                       Demo Screens
                     </h2>
-                    <p className="text-white/60 mt-2" data-testid="text-vibe-demo-screens-subtitle">
+                    <p className="text-gray-500 mt-2" data-testid="text-vibe-demo-screens-subtitle">
                       Key screens from the prototype.
                     </p>
                   </div>
-                  <div className="hidden md:block h-px flex-1 bg-white/10" />
+                  <div className="hidden md:block h-px flex-1 bg-gray-200" />
                 </div>
 
                 {project.demoScreens.trainer && project.demoScreens.trainer.length > 0 && (
                   <div className="space-y-4" data-testid="group-demo-trainer">
-                    <h3 className="text-lg font-display font-semibold text-white/90">Trainer</h3>
+                    <h3 className="text-lg font-display font-semibold text-gray-700">Trainer</h3>
                     <div className="grid gap-6">
                       {project.demoScreens.trainer.map((screen, index) => (
                         <figure
                           key={`trainer-${index}`}
-                          className="glass rounded-3xl border-white/10 bg-white/5 p-2"
+                          className="card-clean rounded-3xl p-2"
                           data-testid={`figure-demo-trainer-${index}`}
                         >
-                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+                          <div className="rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
                             <img
                               src={screen.src}
                               alt={screen.alt}
@@ -279,7 +301,7 @@ export default function VibeCodingProject() {
                           </div>
                           {screen.caption && (
                             <figcaption
-                              className="px-4 pt-4 pb-3 text-sm text-white/60"
+                              className="px-4 pt-4 pb-3 text-sm text-gray-500"
                               data-testid={`text-demo-trainer-caption-${index}`}
                             >
                               {screen.caption}
@@ -293,15 +315,15 @@ export default function VibeCodingProject() {
 
                 {project.demoScreens.client && project.demoScreens.client.length > 0 && (
                   <div className="space-y-4" data-testid="group-demo-client">
-                    <h3 className="text-lg font-display font-semibold text-white/90">Client</h3>
+                    <h3 className="text-lg font-display font-semibold text-gray-700">Client</h3>
                     <div className="grid gap-6">
                       {project.demoScreens.client.map((screen, index) => (
                         <figure
                           key={`client-${index}`}
-                          className="glass rounded-3xl border-white/10 bg-white/5 p-2"
+                          className="card-clean rounded-3xl p-2"
                           data-testid={`figure-demo-client-${index}`}
                         >
-                          <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
+                          <div className="rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
                             <img
                               src={screen.src}
                               alt={screen.alt}
@@ -312,7 +334,7 @@ export default function VibeCodingProject() {
                           </div>
                           {screen.caption && (
                             <figcaption
-                              className="px-4 pt-4 pb-3 text-sm text-white/60"
+                              className="px-4 pt-4 pb-3 text-sm text-gray-500"
                               data-testid={`text-demo-client-caption-${index}`}
                             >
                               {screen.caption}
@@ -323,11 +345,11 @@ export default function VibeCodingProject() {
                     </div>
                   </div>
                 )}
-              </section>
+              </motion.section>
             ) : null}
 
             <section className="mt-12 space-y-6" data-testid="section-vibe-links">
-              <h2 className="text-2xl font-display font-bold text-white" data-testid="text-vibe-links-title">
+              <h2 className="text-2xl font-display font-bold text-gray-900" data-testid="text-vibe-links-title">
                 Links
               </h2>
               {project.links && project.links.length > 0 ? (
@@ -338,7 +360,7 @@ export default function VibeCodingProject() {
                       href={l.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/10 text-white text-sm font-medium transition-all border border-white/10"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-900 text-white text-sm font-medium transition-all hover:bg-gray-800 border border-gray-900"
                       data-testid={`link-vibe-${l.label.replace(/\s+/g, "-").toLowerCase()}`}
                     >
                       {l.label}
@@ -347,8 +369,8 @@ export default function VibeCodingProject() {
                   ))}
                 </div>
               ) : (
-                <div className="glass rounded-2xl border-white/10 bg-white/5 px-6 py-5" data-testid="empty-vibe-links">
-                  <p className="text-white/60" data-testid="text-vibe-links-empty">
+                <div className="card-clean rounded-2xl px-6 py-5" data-testid="empty-vibe-links">
+                  <p className="text-gray-500" data-testid="text-vibe-links-empty">
                     <a
                       href="https://lindseykayfitness-scheduler.replit.app"
                       target="_blank"
@@ -364,12 +386,12 @@ export default function VibeCodingProject() {
             </section>
 
             <section className="mt-12" data-testid="section-vibe-note">
-              <div className="glass rounded-2xl border-white/10 bg-white/5 px-6 py-5">
+              <div className="card-clean rounded-2xl px-6 py-5">
                 <div className="inline-flex items-center gap-2 text-primary mb-3" data-testid="text-vibe-note-title">
                   <Sparkles className="w-4 h-4" />
                   <span className="text-sm font-medium tracking-wide uppercase">How I used Replit</span>
                 </div>
-                <p className="text-white/70 text-lg leading-relaxed" data-testid="text-vibe-note-body">{project.replitNote || "These projects were built as rapid prototypes to explore layout, interaction patterns, and clear UX writing — while keeping the pace fast enough to iterate on real feedback."}</p>
+                <p className="text-gray-500 text-lg leading-relaxed" data-testid="text-vibe-note-body">{project.replitNote || "These projects were built as rapid prototypes to explore layout, interaction patterns, and clear UX writing \u2014 while keeping the pace fast enough to iterate on real feedback."}</p>
               </div>
             </section>
           </div>
