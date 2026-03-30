@@ -3,7 +3,7 @@ import { Camera, Gamepad2, Palette } from "lucide-react";
 import artImage from "@assets/light_study_1765820129721.png";
 import photoImage from "@assets/outdoor_x4_collage_1765815433093.jpg";
 import gameImage from "@assets/gaming_1765815833623.png";
-import headshot from "@assets/headshot_1765474071410.jpeg";
+import headshot from "@assets/headshot.png";
 import { motion } from "framer-motion";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;

@@ -1,0 +1,56 @@
+# Free static hosting: push to `main` builds the Vite client and deploys to GitHub Pages.
+# Repo Settings → Pages → Build and deployment → Source: GitHub Actions.
+# Site URL: https://<user>.github.io/<repo>/
+#
+# For a user/org site (username.github.io repo), set VITE_BASE_PATH to "/" in the workflow env below.
+
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (Vite client only)
+        env:
+          # Project Pages URL is /<repo-name>/ — must match Vite `base` for assets + router.
+          VITE_BASE_PATH: /${{ github.event.repository.name }}/
+        run: |
+          npm run build:static
+          cp dist/public/index.html dist/public/404.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

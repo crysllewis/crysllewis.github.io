@@ -52,7 +52,7 @@ export default function Navigation() {
               About
             </Link>
             <a
-              href="/Crystal_McDermott_Resume.docx"
+              href="/Lewis_Resume_2025_Full.docx"
               download
               className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors cursor-pointer"
               data-testid="link-resume"
@@ -61,7 +61,7 @@ export default function Navigation() {
             </a>
             <a
               href="/#bio"
-              className="px-4 py-2 rounded-full bg-gray-900 text-white text-sm font-medium transition-all hover:bg-gray-800"
+              className="px-4 py-2 rounded-full border border-gray-300 text-gray-700 text-sm font-medium transition-all hover:border-gray-400 hover:bg-gray-50"
               data-testid="link-lets-talk"
             >
               Let's Talk
@@ -100,7 +100,7 @@ export default function Navigation() {
             About
           </Link>
           <a
-            href="/Crystal_McDermott_Resume.docx"
+            href="/Lewis_Resume_2025_Full.docx"
             download
             className="text-2xl font-medium text-gray-700 hover:text-gray-900 transition-colors cursor-pointer"
             data-testid="link-resume-mobile"
@@ -110,7 +110,7 @@ export default function Navigation() {
           <a
             href="/#bio"
             onClick={() => setMobileOpen(false)}
-            className="mt-4 px-6 py-3 rounded-full bg-gray-900 text-white text-lg font-medium transition-all hover:bg-gray-800"
+            className="mt-4 px-6 py-3 rounded-full border border-gray-300 text-gray-700 text-lg font-medium transition-all hover:border-gray-400 hover:bg-gray-50"
             data-testid="link-lets-talk-mobile"
           >
             Let's Talk

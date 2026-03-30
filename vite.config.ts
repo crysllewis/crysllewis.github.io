@@ -4,7 +4,10 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import { metaImagesPlugin } from "./vite-plugin-meta-images";
 
+// For GitHub Pages project sites use: VITE_BASE_PATH=/your-repo-name/
+// (leading/trailing slashes optional; Vite normalizes.)
 export default defineConfig({
+  base: process.env.VITE_BASE_PATH?.trim() || "/",
   plugins: [
     react(),
     tailwindcss(),

@@ -8,6 +8,12 @@ import lkfHero from "@/assets/images/lkf-visual-hero.png";
 import lkfTestimonials from "@/assets/images/lkf-visual-testimonials.png";
 import gymTrainerScreens from "@/assets/images/gym-trainer-screens.png";
 import gymClientScreens from "@/assets/images/gym-client-screens.png";
+import dfcgDashboard from "@/assets/images/dfcg-pm/01-dashboard.png";
+import dfcgNewProject from "@/assets/images/dfcg-pm/02-new-project.png";
+import dfcgProjects from "@/assets/images/dfcg-pm/03-projects.png";
+import dfcgProjectDetail from "@/assets/images/dfcg-pm/04-project-detail.png";
+import dfcgTasksKanban from "@/assets/images/dfcg-pm/05-tasks-kanban.png";
+import dfcgSettings from "@/assets/images/dfcg-pm/06-settings.png";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
 
@@ -22,15 +28,17 @@ interface VibeProject {
   demoScreens?: {
     trainer?: { src: string; alt: string; caption?: string }[];
     client?: { src: string; alt: string; caption?: string }[];
+    gallery?: { src: string; alt: string; caption?: string }[];
   };
   links?: { label: string; href: string }[];
+  codingTool?: string;
   replitNote?: string;
 }
 
 const vibeProjects: Record<string, VibeProject> = {
   "lindsey-kay-fitness": {
     title: "Lindsey Kay Fitness",
-    category: "Vibe Coding \u2022 Website Prototype",
+    category: "AI Workflow \u2022 Website Prototype",
     overview:
       "A modern marketing site built through rapid iteration. The goal was to sharpen visual hierarchy, clarify services, and create a conversion-friendly structure that still feels personal and brand-forward.",
     highlights: [
@@ -62,7 +70,7 @@ const vibeProjects: Record<string, VibeProject> = {
   },
   "gym-scheduler": {
     title: "Gym Scheduler",
-    category: "Vibe Coding \u2022 App Prototype",
+    category: "AI Workflow \u2022 App Prototype",
     overview:
       "A scheduling concept focusing on the end-to-end flow: changing classes, requesting a time slot, managing capacity, and reducing no-shows. I am building this app as a prototype to explore how to present easy calendaring options for both clients and trainers.",
     highlights: [
@@ -97,10 +105,68 @@ const vibeProjects: Record<string, VibeProject> = {
     links: [],
     replitNote: "Using Replit's live environment, I am developing a high-fidelity scheduler app to explore seamless booking flows. This is allowing for instant iteration on the UI, focusing on minimizing friction points and streamlining the appointment process.",
   },
+  "dfcg-pm": {
+    title: "DFCG Project Management",
+    category: "AI Workflow \u2022 Web Application",
+    overview:
+      "I built this with DeFacto Consulting Group as their internal hub for insurance and property consulting work. The goal was simple: give the firm one honest picture of what's in flight, where conflict checks and EA or retainer approvals are stuck, and which tasks are overdue. It's a Next.js app with Supabase for auth and data, with dashboards, Kanban, and workflows so people aren't piecing status together from inboxes.",
+    highlights: [
+      "Firm-wide dashboard: projects, conflict/EA queues, overdue tasks",
+      "Kanban board: drag-and-drop, priorities, assignees",
+      "Conflict-check: submit and respond in flow",
+      "Task templates by engagement type",
+      "Status workflow designer + Mermaid export",
+      "Audit log for compliance",
+    ],
+    tools: ["Cursor", "Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase"],
+    deliverables: [
+      "Product Requirements Document",
+      "User flows",
+      "Core screens prototype",
+      "Interaction patterns",
+    ],
+    demoScreens: {
+      gallery: [
+        {
+          src: dfcgDashboard,
+          alt: "DFCG Project Management dashboard with firm-wide overview and task queues",
+          caption: "Dashboard: conflict queues, pending EA/retainer, overdue and upcoming tasks",
+        },
+        {
+          src: dfcgNewProject,
+          alt: "DFCG Project Management new project intake form",
+          caption: "New project intake: engagement details, client info, and other parties",
+        },
+        {
+          src: dfcgProjects,
+          alt: "DFCG Project Management projects list with filters and status cards",
+          caption: "Projects: search, filters, and project cards with status and report due dates",
+        },
+        {
+          src: dfcgProjectDetail,
+          alt: "DFCG Project Management project detail page",
+          caption: "Project detail: client, engagement, narrative, parties, and task progress",
+        },
+        {
+          src: dfcgTasksKanban,
+          alt: "DFCG Project Management firm-wide Kanban task board",
+          caption: "Tasks: drag-and-drop Kanban across projects with filters and assignments",
+        },
+        {
+          src: dfcgSettings,
+          alt: "DFCG Project Management settings and profile",
+          caption: "Settings: profile and account preferences",
+        },
+      ],
+    },
+    links: [],
+    codingTool: "Cursor",
+    replitNote: "I used Cursor as both the design and development environment to build this full-stack application. Cursor's AI-assisted coding enabled rapid iteration on complex features like the Kanban board, conflict-check workflows, and role-based access, moving from concept to working prototype significantly faster than traditional development.",
+  },
 };
 
 export default function VibeCodingProject() {
-  const [match, params] = useRoute("/vibe-coding/:id");
+  const [match, params] = useRoute("/ai-expertise/:id");
   const project = match && params?.id ? vibeProjects[params.id] : null;
 
   useEffect(() => {
@@ -142,29 +208,22 @@ export default function VibeCodingProject() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease }}
             >
-              <div className="flex items-start justify-between gap-8">
-                <div>
-                  <span className="text-primary text-sm font-medium tracking-wider uppercase mb-4 block" data-testid="text-vibe-category">
-                    {project.category}
-                  </span>
-                  <h1 className="text-4xl md:text-6xl font-display font-bold text-gray-900 mb-6 leading-tight" data-testid="text-vibe-title">
-                    {project.title}
-                  </h1>
-                  <p className="text-gray-500 text-lg leading-relaxed max-w-2xl" data-testid="text-vibe-overview">
-                    {project.overview}
-                  </p>
-                </div>
-
-                <div className="hidden md:flex items-center gap-2 text-gray-400" data-testid="badge-vibe">
-                  <Sparkles className="w-4 h-4" />
-                  <span className="text-sm font-medium">Vibe Coding</span>
-                </div>
+              <div>
+                <span className="text-primary text-sm font-medium tracking-wider uppercase mb-4 block" data-testid="text-vibe-category">
+                  {project.category}
+                </span>
+                <h1 className="text-4xl md:text-6xl font-display font-bold text-gray-900 mb-6 leading-tight" data-testid="text-vibe-title">
+                  {project.title}
+                </h1>
+                <p className="text-gray-500 text-lg leading-relaxed max-w-2xl" data-testid="text-vibe-overview">
+                  {project.overview}
+                </p>
               </div>
             </motion.div>
 
             <section className="card-clean rounded-2xl px-6 py-5 mt-10" data-testid="section-vibe-meta">
-              <div className="grid sm:grid-cols-3 gap-6 items-start place-items-center">
-                <div>
+              <div className="grid sm:grid-cols-3 gap-8 items-start">
+                <div className="w-full text-left">
                   <h3 className="text-gray-900 font-bold mb-2 font-display" data-testid="text-vibe-deliverables-label">
                     Deliverables
                   </h3>
@@ -178,7 +237,7 @@ export default function VibeCodingProject() {
                   </ul>
                 </div>
 
-                <div>
+                <div className="w-full text-left">
                   <h3 className="text-gray-900 font-bold mb-2 font-display" data-testid="text-vibe-highlights-label">
                     Highlights
                   </h3>
@@ -192,7 +251,7 @@ export default function VibeCodingProject() {
                   </ul>
                 </div>
 
-                <div>
+                <div className="w-full text-left">
                   <h3 className="text-gray-900 font-bold mb-2 font-display" data-testid="text-vibe-tools-label">
                     Tools
                   </h3>
@@ -259,7 +318,10 @@ export default function VibeCodingProject() {
               </motion.section>
             )}
 
-            {project.demoScreens && (project.demoScreens.trainer?.length || project.demoScreens.client?.length) ? (
+            {project.demoScreens &&
+            (project.demoScreens.trainer?.length ||
+              project.demoScreens.client?.length ||
+              project.demoScreens.gallery?.length) ? (
               <motion.section
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -279,6 +341,36 @@ export default function VibeCodingProject() {
                   </div>
                   <div className="hidden md:block h-px flex-1 bg-gray-200" />
                 </div>
+
+                {project.demoScreens.gallery && project.demoScreens.gallery.length > 0 && (
+                  <div className="grid gap-6" data-testid="group-demo-gallery">
+                    {project.demoScreens.gallery.map((screen, index) => (
+                      <figure
+                        key={`gallery-${index}`}
+                        className="card-clean rounded-3xl p-2"
+                        data-testid={`figure-demo-gallery-${index}`}
+                      >
+                        <div className="rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
+                          <img
+                            src={screen.src}
+                            alt={screen.alt}
+                            className="w-full h-auto block"
+                            loading="lazy"
+                            data-testid={`img-demo-gallery-${index}`}
+                          />
+                        </div>
+                        {screen.caption && (
+                          <figcaption
+                            className="px-4 pt-4 pb-3 text-sm text-gray-500"
+                            data-testid={`text-demo-gallery-caption-${index}`}
+                          >
+                            {screen.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    ))}
+                  </div>
+                )}
 
                 {project.demoScreens.trainer && project.demoScreens.trainer.length > 0 && (
                   <div className="space-y-4" data-testid="group-demo-trainer">
@@ -371,15 +463,7 @@ export default function VibeCodingProject() {
               ) : (
                 <div className="card-clean rounded-2xl px-6 py-5" data-testid="empty-vibe-links">
                   <p className="text-gray-500" data-testid="text-vibe-links-empty">
-                    <a
-                      href="https://lindseykayfitness-scheduler.replit.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline"
-                    >
-                      https://lindseykayfitness-scheduler.replit.app
-                    </a>{" "}
-                    (This prototype is still a work in progress.)
+                    Coming Soon
                   </p>
                 </div>
               )}
@@ -389,7 +473,7 @@ export default function VibeCodingProject() {
               <div className="card-clean rounded-2xl px-6 py-5">
                 <div className="inline-flex items-center gap-2 text-primary mb-3" data-testid="text-vibe-note-title">
                   <Sparkles className="w-4 h-4" />
-                  <span className="text-sm font-medium tracking-wide uppercase">How I used Replit</span>
+                  <span className="text-sm font-medium tracking-wide uppercase">How I used {project.codingTool || "Replit"}</span>
                 </div>
                 <p className="text-gray-500 text-lg leading-relaxed" data-testid="text-vibe-note-body">{project.replitNote || "These projects were built as rapid prototypes to explore layout, interaction patterns, and clear UX writing \u2014 while keeping the pace fast enough to iterate on real feedback."}</p>
               </div>

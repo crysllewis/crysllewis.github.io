@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Companies from "@/components/Companies";
 import Skills from "@/components/Skills";
-import headshot from "@assets/headshot_1765474071410.jpeg";
+import headshot from "@assets/headshot.png";
 import { Brain, Flag, FileText, Layers } from "lucide-react";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
