@@ -28,6 +28,7 @@ import checkInFlow from "@/assets/case-studies/instant-upsell/check_in_flow.png"
 import manageResFlow from "@/assets/case-studies/instant-upsell/manage_res_flow.png";
 import ideationDesktop from "@/assets/case-studies/instant-upsell/ideation_desktop.png";
 import ideationMobile from "@/assets/case-studies/instant-upsell/ideation_mobile.png";
+import upsellJourneyMap from "@/assets/case-studies/instant-upsell/journey_map.png";
 import personaComfort from "@/assets/case-studies/instant-upsell/personas/comfort-seeker.jpg";
 import personaLoyalist from "@/assets/case-studies/instant-upsell/personas/miles-loyalist.jpg";
 import personaBudget from "@/assets/case-studies/instant-upsell/personas/budget-browser.jpg";
@@ -132,6 +133,8 @@ const projects: Record<string, Project> = {
           "User Flow Analysis: Mapped existing touchpoints across Manage Reservation and Check-in to identify where upgrade offers would have the highest visibility and user intent",
           "Stakeholder Interviews: Collaborated with revenue management and operations teams to understand pricing constraints, cabin inventory rules, and business targets",
         ],
+        image: upsellJourneyMap,
+        imageCaption: "AAdvantage member journey map: stages, pain points, emotional curve, and opportunities",
       },
       {
         title: "Who We Designed For",

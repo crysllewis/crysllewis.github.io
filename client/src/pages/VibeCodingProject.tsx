@@ -350,11 +350,11 @@ export default function VibeCodingProject() {
                         className="card-clean rounded-3xl p-2"
                         data-testid={`figure-demo-gallery-${index}`}
                       >
-                        <div className="rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
+                        <div className="rounded-2xl overflow-hidden border border-gray-200 bg-gray-50 flex items-center justify-center py-4">
                           <img
                             src={screen.src}
                             alt={screen.alt}
-                            className="w-full h-auto block"
+                            className="w-[85%] h-auto block rounded-lg"
                             loading="lazy"
                             data-testid={`img-demo-gallery-${index}`}
                           />
@@ -463,7 +463,7 @@ export default function VibeCodingProject() {
               ) : (
                 <div className="card-clean rounded-2xl px-6 py-5" data-testid="empty-vibe-links">
                   <p className="text-gray-500" data-testid="text-vibe-links-empty">
-                    Coming Soon
+                    Email me for access
                   </p>
                 </div>
               )}
