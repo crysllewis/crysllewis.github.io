@@ -21,6 +21,7 @@ import dfcgProjects from "@/assets/images/dfcg-pm/03-projects.png";
 import dfcgProjectDetail from "@/assets/images/dfcg-pm/04-project-detail.png";
 import dfcgTasksKanban from "@/assets/images/dfcg-pm/05-tasks-kanban.png";
 import dfcgSettings from "@/assets/images/dfcg-pm/06-settings.png";
+import dfcgUserFlow from "@/assets/images/dfcg-pm/user-flow.png";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
 
@@ -42,6 +43,7 @@ interface VibeProject {
     content: string;
     items?: string[];
     link?: { label: string; href: string };
+    image?: { src: string; alt: string; caption?: string };
   }[];
   links?: { label: string; href: string }[];
   codingTool?: string;
@@ -170,6 +172,11 @@ const vibeProjects: Record<string, VibeProject> = {
         title: "Planning & Development in Cursor",
         content:
           "I brought all of the documentation, research, and client feedback into Cursor to build a comprehensive Plan. After reviewing the plan together to make sure every requirement was captured, we started building the application screen by screen, using the plan as a living reference throughout development.",
+        image: {
+          src: dfcgUserFlow,
+          alt: "DFCG Project Management user flow: from project submission through conflict check, EA/retainer approval, active work, and archival",
+          caption: "Project status workflow: conflict intake, EA/retainer gate, and delivery lifecycle",
+        },
       },
       {
         title: "User Testing & Iteration",
@@ -381,6 +388,23 @@ export default function VibeCodingProject() {
                             {step.link.label}
                             <ExternalLink className="w-3.5 h-3.5" />
                           </a>
+                        )}
+                        {step.image && (
+                          <figure className="mt-4 card-clean rounded-2xl overflow-hidden p-2">
+                            <div className="rounded-xl overflow-hidden border border-gray-200 bg-white flex items-center justify-center p-4">
+                              <img
+                                src={step.image.src}
+                                alt={step.image.alt}
+                                className="w-full max-w-lg h-auto"
+                                loading="lazy"
+                              />
+                            </div>
+                            {step.image.caption && (
+                              <figcaption className="text-center text-gray-400 text-sm py-3 italic">
+                                {step.image.caption}
+                              </figcaption>
+                            )}
+                          </figure>
                         )}
                       </div>
                     </motion.div>
