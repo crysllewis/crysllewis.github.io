@@ -1,6 +1,13 @@
 import { useEffect } from "react";
 import { Link, useRoute } from "wouter";
 import { ArrowLeft, ExternalLink, Sparkles } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 
@@ -30,6 +37,12 @@ interface VibeProject {
     client?: { src: string; alt: string; caption?: string }[];
     gallery?: { src: string; alt: string; caption?: string }[];
   };
+  processSteps?: {
+    title: string;
+    content: string;
+    items?: string[];
+    link?: { label: string; href: string };
+  }[];
   links?: { label: string; href: string }[];
   codingTool?: string;
   replitNote?: string;
@@ -109,7 +122,7 @@ const vibeProjects: Record<string, VibeProject> = {
     title: "DFCG Project Management",
     category: "AI Workflow \u2022 Web Application",
     overview:
-      "I built this with DeFacto Consulting Group as their internal hub for insurance and property consulting work. The goal was simple: give the firm one honest picture of what's in flight, where conflict checks and EA or retainer approvals are stuck, and which tasks are overdue. It's a Next.js app with Supabase for auth and data, with dashboards, Kanban, and workflows so people aren't piecing status together from inboxes.",
+      "I built this app with the DeFacto Consulting Group as their internal hub for insurance and property consulting work. The goal was simple: give the firm one honest picture of what's in flight, where projects are stuck, and which tasks are overdue or upcoming. It's a Next.js app with Supabase for auth and data, with dashboards, Kanban, and workflows so people aren't piecing status together from inboxes.",
     highlights: [
       "Firm-wide dashboard: projects, conflict/EA queues, overdue tasks",
       "Kanban board: drag-and-drop, priorities, assignees",
@@ -124,6 +137,45 @@ const vibeProjects: Record<string, VibeProject> = {
       "User flows",
       "Core screens prototype",
       "Interaction patterns",
+    ],
+    processSteps: [
+      {
+        title: "Client Discovery",
+        content:
+          "I met with the client to walk through his full list of desired features and understand the day-to-day pain points the firm was dealing with. From that conversation we prioritized which capabilities would deliver the most value up front and scoped out what the first MVP would look like.",
+      },
+      {
+        title: "Requirements Engineering with ChatPRD",
+        content:
+          "I took the prioritized features list into ChatPRD to generate structured Acceptance Criteria, a product Roadmap, a Data Model, and a User Permissions Matrix. We then reviewed each document together, tweaked them to align more closely with the firm's actual workflows and constraints, and signed off before moving into design.",
+      },
+      {
+        title: "UX Research with Perplexity",
+        content:
+          "I used Perplexity to research usability guidelines and industry standards for designing dashboards. The research covered layout strategies, navigation placement, and visual hierarchy patterns for data-heavy applications. Key takeaways that directly shaped the design:",
+        items: [
+          "Inverted pyramid structure: KPIs and summaries at top, charts and trends in the middle, detailed tables at the bottom",
+          "F-pattern reading flow: place the most critical, actionable metrics in the upper-left anchor point",
+          "Left-side vertical navigation as the standard for complex dashboards — scalable, collapsible, and aligned with natural scanning",
+          "Progressive disclosure: show essentials by default, let users drill down for detail to prevent cognitive overload",
+          "Modular grid with card-based widgets to group related metrics using the Gestalt principle of proximity",
+          "Strategic color: neutral palette as the foundation, reserving high-contrast colors strictly for status changes and alerts",
+        ],
+        link: {
+          label: "View full research thread",
+          href: "https://www.perplexity.ai/search/what-is-the-most-efficient-lay-4mkN1veuR5amLNswRGnUsg",
+        },
+      },
+      {
+        title: "Planning & Development in Cursor",
+        content:
+          "I brought all of the documentation, research, and client feedback into Cursor to build a comprehensive Plan. After reviewing the plan together to make sure every requirement was captured, we started building the application screen by screen, using the plan as a living reference throughout development.",
+      },
+      {
+        title: "User Testing & Iteration",
+        content:
+          "We've been testing the working prototype directly with firm employees, observing how they navigate the dashboard, create projects, and manage tasks. Their feedback has driven ongoing changes to the interface, from adjusting how conflict-check status is displayed to simplifying the project intake form.",
+      },
     ],
     demoScreens: {
       gallery: [
@@ -215,7 +267,7 @@ export default function VibeCodingProject() {
                 <h1 className="text-4xl md:text-6xl font-display font-bold text-gray-900 mb-6 leading-tight" data-testid="text-vibe-title">
                   {project.title}
                 </h1>
-                <p className="text-gray-500 text-lg leading-relaxed max-w-2xl" data-testid="text-vibe-overview">
+                <p className="text-gray-500 text-lg leading-relaxed" data-testid="text-vibe-overview">
                   {project.overview}
                 </p>
               </div>
@@ -266,6 +318,76 @@ export default function VibeCodingProject() {
                 </div>
               </div>
             </section>
+
+            {project.processSteps && project.processSteps.length > 0 && (
+              <motion.section
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease }}
+                className="mt-12 space-y-8"
+                data-testid="section-vibe-process"
+              >
+                <div className="flex items-end justify-between gap-8">
+                  <div>
+                    <h2 className="text-2xl font-display font-bold text-gray-900" data-testid="text-vibe-process-title">
+                      Design Process
+                    </h2>
+                    <p className="text-gray-500 mt-2" data-testid="text-vibe-process-subtitle">
+                      How we went from a feature request to a working product.
+                    </p>
+                  </div>
+                  <div className="hidden md:block h-px flex-1 bg-gray-200" />
+                </div>
+
+                <div className="space-y-6">
+                  {project.processSteps.map((step, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.08, ease }}
+                      className="flex gap-5"
+                      data-testid={`process-step-${index}`}
+                    >
+                      <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gray-900 text-white flex items-center justify-center text-sm font-bold mt-0.5">
+                        {index + 1}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg font-display font-semibold text-gray-900 mb-2">
+                          {step.title}
+                        </h3>
+                        <p className="text-gray-500 text-base leading-relaxed">
+                          {step.content}
+                        </p>
+                        {step.items && step.items.length > 0 && (
+                          <ul className="mt-3 space-y-1.5 text-gray-500 text-sm leading-relaxed">
+                            {step.items.map((item, i) => (
+                              <li key={i} className="flex gap-2">
+                                <span className="text-primary mt-1 shrink-0">&#8226;</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                        {step.link && (
+                          <a
+                            href={step.link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-primary hover:text-gray-900 transition-colors"
+                          >
+                            {step.link.label}
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.section>
+            )}
 
             {project.visuals && project.visuals.length > 0 && (
               <motion.section
@@ -343,32 +465,42 @@ export default function VibeCodingProject() {
                 </div>
 
                 {project.demoScreens.gallery && project.demoScreens.gallery.length > 0 && (
-                  <div className="grid gap-6" data-testid="group-demo-gallery">
-                    {project.demoScreens.gallery.map((screen, index) => (
-                      <figure
-                        key={`gallery-${index}`}
-                        className="card-clean rounded-3xl p-2"
-                        data-testid={`figure-demo-gallery-${index}`}
-                      >
-                        <div className="rounded-2xl overflow-hidden border border-gray-200 bg-gray-50 flex items-center justify-center py-4">
-                          <img
-                            src={screen.src}
-                            alt={screen.alt}
-                            className="w-[85%] h-auto block rounded-lg"
-                            loading="lazy"
-                            data-testid={`img-demo-gallery-${index}`}
-                          />
-                        </div>
-                        {screen.caption && (
-                          <figcaption
-                            className="px-4 pt-4 pb-3 text-sm text-gray-500"
-                            data-testid={`text-demo-gallery-caption-${index}`}
+                  <div className="w-full px-12" data-testid="group-demo-gallery">
+                    <Carousel className="w-full">
+                      <CarouselContent>
+                        {project.demoScreens.gallery.map((screen, index) => (
+                          <CarouselItem
+                            key={`gallery-${index}`}
+                            className="min-w-0 shrink-0 grow-0 basis-full"
                           >
-                            {screen.caption}
-                          </figcaption>
-                        )}
-                      </figure>
-                    ))}
+                            <figure
+                              className="card-clean rounded-3xl p-2"
+                              data-testid={`figure-demo-gallery-${index}`}
+                            >
+                              <div className="rounded-2xl overflow-hidden border border-gray-200 bg-gray-50 flex items-center justify-center py-4">
+                                <img
+                                  src={screen.src}
+                                  alt={screen.alt}
+                                  className="w-[85%] h-auto block rounded-lg"
+                                  loading="lazy"
+                                  data-testid={`img-demo-gallery-${index}`}
+                                />
+                              </div>
+                              {screen.caption && (
+                                <figcaption
+                                  className="px-4 pt-4 pb-3 text-sm text-gray-500 text-center"
+                                  data-testid={`text-demo-gallery-caption-${index}`}
+                                >
+                                  {screen.caption}
+                                </figcaption>
+                              )}
+                            </figure>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious />
+                      <CarouselNext />
+                    </Carousel>
                   </div>
                 )}
 
