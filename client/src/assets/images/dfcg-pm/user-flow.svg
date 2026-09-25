@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="960" viewBox="0 0 700 960" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#9ca3af"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#059669"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#ef4444"/></marker>
+  </defs>
+
+  <rect x="150" y="20" width="220" height="50" rx="25" fill="#1f2937"/>
+  <text x="260" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Employee submits</text>
+  <text x="260" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#ffffff">new project</text>
+  <line x1="260" y1="70" x2="260" y2="108" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="150" y="110" width="220" height="62" rx="12" fill="#bbf7d0" stroke="#86efac" stroke-width="1.5"/>
+  <text x="260" y="136" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Pending Conflict</text>
+  <text x="260" y="156" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="400" fill="#6b7280">Emails sent to all employees</text>
+  <line x1="260" y1="172" x2="260" y2="218" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <polygon points="260,220 325,258 260,296 195,258" fill="#bfdbfe" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="260" y="262" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1f2937">All clear?</text>
+
+  <line x1="260" y1="296" x2="260" y2="348" stroke="#059669" stroke-width="2" marker-end="url(#ag)"/>
+  <text x="245" y="328" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#059669">Yes</text>
+
+  <path d="M325,258 L530,258 L530,348" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#ar)"/>
+  <text x="345" y="250" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#dc2626">No</text>
+
+  <rect x="150" y="350" width="220" height="50" rx="12" fill="#bbf7d0" stroke="#86efac" stroke-width="1.5"/>
+  <text x="260" y="380" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Pending EA / Retainer</text>
+  <line x1="260" y1="400" x2="260" y2="443" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="420" y="350" width="220" height="50" rx="12" fill="#fef08a" stroke="#fde047" stroke-width="1.5"/>
+  <text x="530" y="380" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Conflict Review</text>
+  <line x1="530" y1="400" x2="530" y2="443" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <polygon points="530,445 590,478 530,511 470,478" fill="#bfdbfe" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="530" y="482" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1f2937">Cleared?</text>
+
+  <path d="M470,478 L400,478 L400,375 L370,375" stroke="#059669" stroke-width="2" fill="none" marker-end="url(#ag)"/>
+  <text x="455" y="468" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#059669">Yes</text>
+
+  <text x="598" y="468" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#dc2626">No</text>
+  <text x="598" y="482" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#9ca3af" font-style="italic">(remains in review)</text>
+
+  <polygon points="260,445 330,483 260,521 190,483" fill="#bfdbfe" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="260" y="479" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1f2937">EA tasks</text>
+  <text x="260" y="493" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1f2937">complete?</text>
+
+  <line x1="260" y1="521" x2="260" y2="568" stroke="#059669" stroke-width="2" marker-end="url(#ag)"/>
+  <text x="245" y="550" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#059669">Yes</text>
+
+  <rect x="150" y="570" width="220" height="50" rx="12" fill="#bbf7d0" stroke="#86efac" stroke-width="1.5"/>
+  <text x="260" y="600" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Active</text>
+  <line x1="260" y1="620" x2="260" y2="648" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="150" y="650" width="220" height="50" rx="12" fill="#bbf7d0" stroke="#86efac" stroke-width="1.5"/>
+  <text x="260" y="680" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Report Issued</text>
+  <line x1="260" y1="700" x2="260" y2="728" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="150" y="730" width="220" height="50" rx="12" fill="#fef08a" stroke="#fde047" stroke-width="1.5"/>
+  <text x="260" y="760" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Hold</text>
+  <line x1="260" y1="780" x2="260" y2="808" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="150" y="810" width="220" height="50" rx="12" fill="#bbf7d0" stroke="#86efac" stroke-width="1.5"/>
+  <text x="260" y="840" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Closed</text>
+  <line x1="260" y1="860" x2="260" y2="888" stroke="#9ca3af" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="150" y="890" width="220" height="50" rx="12" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="260" y="920" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1f2937">Archived</text>
+</svg>

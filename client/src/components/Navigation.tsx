@@ -52,7 +52,7 @@ export default function Navigation() {
               About
             </Link>
             <a
-              href="/Lewis_Resume_2025_Full.docx"
+              href="/Lewis_Resume_2026_Full.docx"
               download
               className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors cursor-pointer"
               data-testid="link-resume"
@@ -100,7 +100,7 @@ export default function Navigation() {
             About
           </Link>
           <a
-            href="/Lewis_Resume_2025_Full.docx"
+            href="/Lewis_Resume_2026_Full.docx"
             download
             className="text-2xl font-medium text-gray-700 hover:text-gray-900 transition-colors cursor-pointer"
             data-testid="link-resume-mobile"
