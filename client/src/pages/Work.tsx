@@ -167,13 +167,6 @@ export default function Work() {
                     >
                       UX Case Studies
                     </h2>
-                    <p
-                      className="text-gray-500 max-w-xl"
-                      data-testid="text-work-subtitle"
-                    >
-                      Showcasing how I drove revenue growth, slashed error
-                      rates, and leveled up the customer journey.
-                    </p>
                   </div>
                   <div className="hidden md:block h-px flex-1 bg-gray-200 ml-12 mb-3" />
                 </div>
@@ -199,12 +192,6 @@ export default function Work() {
                     <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-3">
                       AI Expertise
                     </h2>
-                    <p
-                      className="text-gray-500 max-w-2xl"
-                      data-testid="text-ai-expertise-subtitle"
-                    >
-                      Rapid prototyping, UI exploration, and shipping apps fast.
-                    </p>
                   </div>
                   <div className="hidden md:block h-px flex-1 bg-gray-200 ml-12 mb-3" />
                 </div>
