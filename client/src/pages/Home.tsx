@@ -113,7 +113,7 @@ export default function Home() {
                     
                     <ul className="mt-6 space-y-2">
                       {step.items.map((item, idx) => (
-                        <li key={idx} className="flex items-start text-xs text-gray-400">
+                        <li key={idx} className="flex items-start text-xs text-gray-600">
                           <span className="mr-2 mt-1 w-1 h-1 rounded-full bg-primary/50 shrink-0" />
                           {item}
                         </li>
