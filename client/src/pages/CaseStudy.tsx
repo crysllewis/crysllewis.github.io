@@ -109,9 +109,9 @@ const projects: Record<string, Project> = {
     tools: ["Figma", "LUMA", "Mural", "UserZoom"],
     deliverables: ["UX flows", "Wireframes", "Hi-Fi Mockups", "Usability Reports", "Design System Components"],
     challenge:
-      "Increase revenue of the seats ancillary product line while offering customers flexibility to modify their seating after purchase. The existing process had limited flexibility for post-purchase upgrades, resulting in missed upsell potential.",
+      "The Ancillaries business team brought UX a set of requirements: increase revenue from the seats ancillary product line while giving customers the flexibility to change their seating after purchase. The existing post-purchase experience offered little flexibility, and upsell potential was going untapped. I owned how the offers would be presented in the Manage Reservation and Check-in flows.",
     solution:
-      "Designed a page offering flexible upgrade options for each flight leg. Implemented a two-phase approach: first launching cash upgrades, then integrating a miles redemption option for loyalty members. The solution strategically placed teasers on the 'Manage Reservation' page and the full experience within the Check-in flow.",
+      "The business set the direction: offer upgrades for each flight leg, and roll out in two phases, launching cash upgrades first and then adding miles redemption for loyalty members. Offers would appear as a teaser on the Manage Reservation page, with the full experience in the Check-in flow. I designed the upgrade experience within those decisions, focusing on presenting offers so customers could make a decision quickly.",
     results: [
       "$3-4M ancillary revenue (Year 1)",
       "6B miles redeemed (Phase 2)",
@@ -121,17 +121,17 @@ const projects: Record<string, Project> = {
       {
         title: "Background",
         content:
-          "When a customer books a flight, their seat selection often feels like a one-time decision. But travel plans shift. A short hop becomes a red-eye, a couple seated apart wants to sit together, or a loyalty member realizes they have enough miles for an upgrade they hadn't considered. Despite this, American Airlines' existing post-purchase experience offered limited flexibility. The upgrade path was buried, the options were unclear, and a significant revenue opportunity was going untapped. Our goal was to create a seamless post-purchase upsell experience that would increase revenue per passenger while genuinely helping customers get more value from their trip.",
+          "My goal was to make this page as seamless as possible so customers could make efficient decisions, especially during the Check-in flow. To get there, I pushed the team to understand the customer's mindset when viewing the page, so the offers would fit what people were actually thinking about at that moment in their trip.",
       },
       {
         title: "Research Approach",
         content:
-          "To ground our design decisions in real user needs rather than assumptions, we used a structured research approach combining multiple methods:",
+          "I led all of the research for this project, combining four methods so our design decisions were grounded in real user needs rather than assumptions:",
         items: [
-          "Design Thinking Workshops: LUMA-facilitated sessions with business and UX stakeholders to align on goals, surface assumptions, and prioritize opportunities",
-          "Competitive Analysis: Reviewed how other airlines and e-commerce platforms present post-purchase upgrade and upsell offers, identifying patterns in pricing display, offer framing, and conversion tactics",
-          "User Flow Analysis: Mapped existing touchpoints across Manage Reservation and Check-in to identify where upgrade offers would have the highest visibility and user intent",
-          "Stakeholder Interviews: Collaborated with revenue management and operations teams to understand pricing constraints, cabin inventory rules, and business targets",
+          "Design Thinking Workshops: I facilitated LUMA sessions with business and UX stakeholders to align on goals, surface assumptions, and prioritize opportunities",
+          "Competitive Analysis: I reviewed how other airlines and e-commerce platforms present post-purchase upgrade and upsell offers, identifying patterns in pricing display, offer framing, and conversion tactics",
+          "User Flow Analysis: I mapped existing touchpoints across Manage Reservation and Check-in to identify where upgrade offers would have the highest visibility and user intent",
+          "Stakeholder Interviews: I met with revenue management and operations teams to understand pricing constraints, cabin inventory rules, and business targets",
         ],
         image: upsellJourneyMap,
         imageCaption: "AAdvantage member journey map: stages, pain points, emotional curve, and opportunities",
@@ -139,7 +139,7 @@ const projects: Record<string, Project> = {
       {
         title: "Who We Designed For",
         content:
-          "American Airlines aligned product and design work around three customer personas. Below is how each would likely respond to post-purchase seat upgrade offers in Manage Reservation and Check-in.",
+          "American Airlines aligned product and design work around three customer personas. The upsell experience could support each persona's main goals, so we kept all three in mind throughout the design. Below is how each relates to post-purchase seat upgrade offers in Manage Reservation and Check-in.",
         personas: [
           {
             name: "Engaged Vacationer",
@@ -170,7 +170,7 @@ const projects: Record<string, Project> = {
       {
         title: "Discovery & Opportunities",
         content:
-          "Synthesizing our research, we distilled everything into three focused opportunities: 1) Provide two focused upgrade offers to avoid decision paralysis. 2) Present offers by segment (single leg) to give users flexible, lower-commitment options. 3) Display flight duration to help customers weigh which leg is worth upgrading. With the opportunities defined, our first challenge was determining how to position the experience: where in the journey would a teaser drive the highest click-through, and where should the full upgrade page live?",
+          "As a team, we synthesized the research into three focused opportunities: 1) Provide two focused upgrade offers to avoid decision paralysis. 2) Present offers by segment (single leg) to give users flexible, lower-commitment options. 3) Display flight duration to help customers weigh which leg is worth upgrading. Flight duration was a data point I pushed for, because it gives customers a concrete way to decide which leg is worth the upgrade. With the opportunities defined, our first challenge was determining how to position the experience: where in the journey would a teaser drive the highest click-through, and where should the full upgrade page live?",
         images: [manageResFlow, checkInFlow],
         imageCaption:
           "User flows showing the Manage Reservation teaser and Check-in integration paths",
@@ -183,14 +183,14 @@ const projects: Record<string, Project> = {
       {
         title: "Design Process",
         content:
-          "The design process began with competitive research to understand how other commerce sites presented offers. I created a variety of layouts and wireframes, ultimately selecting a card layout for its scannability and ability to present multiple offers without overwhelming the user.",
+          "The design process began with competitive research to understand how other commerce sites presented offers. I explored several layouts and wireframes, including a couple of differently styled table layouts and an accordion layout, before landing on cards.",
         images: [ideationDesktop, ideationMobile],
         imageCaption: "Initial wireframe explorations for the upsell interface",
       },
       {
         title: "Final Design (Phase 1)",
         content:
-          "The selected card layout prioritized clarity and ease of comparison. In the first year alone, this design produced between $3-4 million in profit for American Airlines.",
+          "I chose the card layout because it was the easiest to scan and compare, and it could present multiple offers without overwhelming the customer. In the first year alone, this design generated $3-4 million in revenue for American Airlines.",
         image: upsellFinalDesign,
         imageCaption:
           "Final design featuring clear pricing and simple selection",
@@ -198,21 +198,21 @@ const projects: Record<string, Project> = {
       {
         title: "The Story Continues...",
         content:
-          "After record-breaking profits, business and UX collaborated to improve the experience further. We introduced a 'Cash vs. Miles' payment option for loyal customers. I used a design thinking recipe of storyboarding and dot voting to explore how to show both options concurrently.",
+          "After Phase 1's results, business and UX came back together to add a 'Cash vs. Miles' payment option for loyalty members. I used a design thinking recipe of storyboarding and dot voting to explore how to show both options at the same time. The output was a design framework for presenting miles as a payment option.",
         image: upsellDesignThinking,
         imageCaption: "Design thinking session: Storyboarding and dot voting",
       },
       {
         title: "Usability Testing",
         content:
-          "We tested the design in UserZoom with both guest users and loyalty members. Test participants were asked to upgrade a specific flight leg using both cash and miles options, allowing us to measure comprehension and task success. Several rounds of testing confirmed that users successfully understood how to change currencies and view their balance, with high task-completion rates across both user segments.",
+          "I wrote the test plan and ran the tests in UserZoom with both guest users and loyalty members. Participants were asked to upgrade a specific flight leg using both cash and miles, so we could measure comprehension and task success. Across three rounds of 100 participants each, the overall success rate was consistently 85% or better, and users understood how to switch currencies and view their balance.",
         image: upsellUsability,
         imageCaption: "Usability testing results showing high comprehension",
       },
       {
         title: "Final Design (Phase 2)",
         content:
-          "Despite technical limitations preventing a split-payment slider and showing cabin benefits, the final design successfully implemented a toggle above the offers. After launch, over 6 billion loyalty miles were redeemed by AAdvantage status members.",
+          "Technical limitations meant we had to give up two features: a split-payment slider and showing cabin benefits, because neither could be made to work properly. The toggle above the offers had been very successful in usability testing, so we were confident shipping it. After launch, over 6 billion loyalty miles were redeemed by AAdvantage status members.",
         image: upsellFinalPhase2,
         imageCaption: "Phase 2 design with Cash/Miles toggle",
       },
@@ -220,12 +220,8 @@ const projects: Record<string, Project> = {
         title: "Key Takeaways",
         subsections: [
           {
-            title: "The Value of Flexibility",
-            body: "Segment-based upgrades changed the revenue model, giving customers granular control while maximizing conversion.",
-          },
-          {
-            title: "Navigating Technical Debt",
-            body: "Turning system constraints into simplified, user-friendly solutions that maintained high-performance.",
+            title: "Keep It Simple",
+            body: "My biggest takeaway: keep it simple and provide value the customer actually wants. Two focused offers, per-leg pricing, and a single cash/miles toggle were enough to drive $3-4 million in revenue and over 6 billion miles redeemed.",
           },
         ],
       },
