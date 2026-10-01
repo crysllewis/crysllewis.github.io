@@ -249,9 +249,9 @@ const projects: Record<string, Project> = {
       "Leadership Presentations",
     ],
     challenge:
-      "Customer error rates on the passenger details page were consistently between 4-5%. Confusing labels and complex layouts led to mistakes in entering names and contact details, causing delays and lower customer satisfaction.",
+      "Customer error rates on the passenger details page were consistently between 4-5%. Confusing labels and complex layouts led to mistakes in entering names and contact details, causing delays and lower customer satisfaction. The product owner brought the problem to UX with a clear goal: bring the errors down. I owned the page design updates that would help get there.",
     solution:
-      "Redesigned the page to reduce noise and keep only necessary information. When initial A/B testing showed an uptick in errors, we used Quantum Metric to identify the issue and implemented a 'hinting' mechanism to guide users to complete the passenger cards before proceeding.",
+      "I redesigned the page to reduce noise and keep only the necessary information, and worked with the business on A/B testing and gathering data from Quantum Metric. When the initial A/B test showed an uptick in errors, we used Quantum Metric to identify the issue and implemented a 'hinting' mechanism to guide users to complete the passenger cards before proceeding.",
     results: [
       "Passenger errors: ~5% to <0.1%",
       "Material drop in support calls",
@@ -261,52 +261,30 @@ const projects: Record<string, Project> = {
       {
         title: "Background",
         content:
-          "Picture a customer who just booked a trip for their family. Names must match government ID, contact details must be right, and one small mistake can mean a failed check-in or a long call to support. On the legacy passenger details experience, that stress showed up as hesitation, backtracking, and errors. The page was doing critical work, but it wasn't meeting people where they were mentally: trying to get through a required step quickly and correctly.",
+          "Passenger details is the most time-intensive page in the entire booking flow. My goal was to make passenger entry as easy as possible, so customers would have few, if any, questions in their mind while filling out the forms. That meant keeping the page focused on passenger data, with little to no extra noise.",
       },
       {
         title: "Strategic Context",
         content:
-          "Passenger data sits upstream of security, check-in, and operational readiness. Errors here don't just annoy customers; they create rework for agents, drive support volume, and risk compliance issues. That is why we prioritized reducing cognitive load and error rate over cosmetic polish alone. Success meant fewer bad submissions, not just a prettier layout.",
+          "Passenger data sits upstream of security, check-in, and operational readiness. Errors here don't just annoy customers; they create rework for agents, drive support volume, and risk compliance issues. The product owner and I set the priorities together: reduce cognitive load and error rate over cosmetic polish alone. Success meant fewer bad submissions, not just a prettier layout.",
       },
       {
         title: "Research Approach",
         content:
-          "We combined qualitative and quantitative methods so we could align on intent before build, then validate in production when reality hit:",
+          "I combined qualitative and quantitative methods so we could align on intent before build, then validate in production when reality hit:",
         items: [
-          "Design thinking workshops: LUMA-facilitated exercises with Business and UX to prioritize problems and align on constraints",
-          "Moderated and unmoderated UserZoom studies: validate card-based layouts, passenger selection, and comprehension before development",
-          "Design iteration: structured critiques on chunking passenger data, labeling, and progressive disclosure",
-          "A/B testing: measure error rate and completion behavior in the live funnel",
-          "Quantum Metric session replay: diagnose why errors spiked after launch and confirm behavioral hypotheses",
-          "Competitive and pattern review: benchmark how other travel flows signal incomplete steps and guide completion",
-        ],
-      },
-      {
-        title: "Journey at a Glance",
-        content:
-          "At a high level, customers move through a narrow mental model on this page. Mapping it explicitly helped us see where guidance was missing:",
-        items: [
-          "Orient: understand who needs information entered or confirmed for this booking",
-          "Act: complete each passenger's details without losing context",
-          "Validate: feel confident the right person is tied to the right data before moving on",
-          "Proceed: continue only when the flow is truly complete",
-        ],
-      },
-      {
-        title: "Where Friction Showed Up",
-        content:
-          "Before redesigning, we reviewed the experience against common usability principles. A few themes kept resurfacing:",
-        items: [
-          "Visibility of status: it was hard to tell which passengers still needed attention versus which were done",
-          "Error prevention: dense layout and competing modules made it easy to skip required work accidentally",
-          "Recognition over recall: labels and grouping did not always make it obvious what belonged to which traveler",
-          "Efficiency for repeat visitors: people booking for groups needed faster scanning, not more on-screen noise",
+          "Design thinking workshops: I facilitated LUMA exercises with Business and UX to prioritize problems and align on constraints",
+          "Moderated and unmoderated UserZoom studies: I ran studies to validate card-based layouts, passenger selection, and comprehension before development",
+          "Design iteration: I led structured critiques on chunking passenger data, labeling, and progressive disclosure",
+          "A/B testing: the business ran A/B tests to measure error rate and completion behavior in the live funnel",
+          "Quantum Metric session replay: I reviewed replays to diagnose why errors spiked after launch and confirm behavioral hypotheses",
+          "Competitive and pattern review: I benchmarked how other travel flows signal incomplete steps and guide completion",
         ],
       },
       {
         title: "Who We Designed For",
         content:
-          "American Airlines aligned product and design work around three customer personas. Below is how each would likely experience the passenger details flow, especially when accuracy and completion state matter.",
+          "American Airlines aligned product and design work around three customer personas, and we kept all three in mind throughout the design. Below is how each relates to the passenger details flow, especially when accuracy and completion state matter.",
         personas: [
           {
             name: "Engaged Vacationer",
@@ -348,17 +326,17 @@ const projects: Record<string, Project> = {
       {
         title: "Discovery",
         content:
-          "Using design thinking, Business and UX teams collaborated using a LUMA recipe: Rose, Thorn, Bud; Affinity Clustering; Visualize the Vote; and an Importance/Difficulty Matrix. The workshop surfaced alignment on reducing noise, tightening the hierarchy, and chunking passenger data into scannable units.",
+          "I facilitated a design thinking workshop with Business and UX teams using a LUMA recipe: Rose, Thorn, Bud; Affinity Clustering; Visualize the Vote; and an Importance/Difficulty Matrix. The workshop surfaced alignment on reducing noise, tightening the hierarchy, and chunking passenger data into scannable units.",
         image: passengerDiscovery,
         imageCaption: "LUMA Design Thinking session results: Identifying key opportunities",
       },
       {
         title: "Key Opportunities",
         content:
-          "After synthesis, we aligned on a short list of opportunities that could move error rate and comprehension together:",
+          "After synthesis, we aligned on a short list of opportunities that could move error rate and comprehension together. We originally wanted to remove the ad on the page, but the business later decided it had to stay. We kept reducing noise everywhere else:",
         items: [
-          "Remove unnecessary fields and reduce visual competition from non-essential modules (including ad footprint where policy allowed)",
-          "Chunk passenger information into cards so each traveler has a clear, bounded workspace",
+          "Remove unnecessary fields and items, such as the promo code field",
+          "Chunk passenger information into cards so customers can focus on one task at a time",
           "Make completion state obvious so users cannot accidentally continue with incomplete passenger records",
           "Preserve flexibility for constrained engineering releases: favor patterns that could ship incrementally",
         ],
@@ -366,26 +344,26 @@ const projects: Record<string, Project> = {
       {
         title: "Design & Research",
         content:
-          "We iterated on card displays and interaction details, pressure-testing passenger selection, editing, and empty states. UserZoom testing indicated the card model improved scannability and task confidence, which gave us a green light to move into development.",
+          "I designed and iterated on card displays and interaction details, pressure-testing passenger selection, editing, and empty states. I then ran two rounds of UserZoom testing with 100 participants, with a 90% success rate. The card model improved scannability and task confidence, which gave us a green light to move into development.",
         image: passengerCards,
         imageCaption: "Iterative design process exploring card-based layouts",
       },
       {
         title: "The Pivot & Challenge",
         content:
-          "The project was initially de-prioritized but brought back in 2025 with strict constraints: few changes could be made to the developed code, and ad placements were fixed. Upon launching an A/B test, we unexpectedly saw error rates spike (affecting 10% of customers).",
+          "The project started in 2023 and was de-prioritized, then brought back to the top of the priority list in 2025 with strict constraints: few changes could be made to the developed code, and ad placements were fixed. Upon launching an A/B test, we unexpectedly saw error rates spike (affecting 10% of customers).",
         image: passengerFail,
         imageCaption: "Design launched for A/B testing",
       },
       {
         title: "Analytics & Recovery",
         content:
-          "Using Quantum Metric, we watched replays and discovered users weren't perceiving the cards as actionable. They clicked 'Continue' without filling them out. We implemented a 'hinting' pattern inspired by competitors, highlighting incomplete areas and only revealing the rest of the page once cards were completed.",
+          "Using Quantum Metric, we watched replays and discovered users weren't perceiving the cards as actionable. They clicked 'Continue' without filling them out. To find a fix, we reviewed how competitors handled passenger entry, and implemented a 'hinting' pattern that highlights incomplete areas and only reveals the rest of the page once the cards are completed.",
       },
       {
         title: "Final Success",
         content:
-          "After this adjustment, error rates dropped from the spike of 12% down to less than 0.1%, surpassing our initial goals and improving revenue.",
+          "After this adjustment, error rates dropped from the 10% spike down to less than 0.1%, well past our goal of 2%. Getting customers through the booking flow quickly and correctly means they are more likely to complete it and make a purchase.",
         image: passengerSuccess,
         imageCaption: "Final design with 'hinting' mechanism that solved the user error issue",
       },
